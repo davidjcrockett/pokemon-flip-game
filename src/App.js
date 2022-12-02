@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import Header from './components/Header';
+import { cardImages } from './components/Images';
 import './App.css';
-import { cardImages } from './components/images';
-import Header from './components/header'
+
 
 function App () {
-//need to pass through cards and turns state variables later in my return
+//need to pass through cards state variable later in my return
   const [ cards, setCards ] = useState ([]);
   const [ turns, setTurns ] = useState(0);
 
@@ -23,10 +24,10 @@ function App () {
   }, []);
 
   return (
-    <div>
+    <div className='App'>
       <Header turns={turns} onShuffle={shuffleCards} />
     </div>
   );
-}
+};
 
 export default App;
