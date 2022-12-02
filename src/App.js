@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import { cardImages } from './components/images';
+import Header from './components/header'
 
 function App () {
 //need to pass through cards and turns state variables later in my return
@@ -23,7 +24,7 @@ function App () {
 
   return (
     <div>
-      Hello, World!
+      <Header turns={turns} onShuffle={shuffleCards} />
     </div>
   );
 }
