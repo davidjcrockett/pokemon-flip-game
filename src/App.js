@@ -34,6 +34,35 @@ function App () {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
+  // Check if cards selected are matching
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+        setDisabled(true);
+        if (choiceOne.src === choiceTwo.src) {
+            setCards((prevCards) => {
+                return prevCards.map((card) => {
+                    if (card.src === choiceOne.src) {
+                        return { ...card, matched: true };
+                    } else {
+                        return card;
+                    }
+                });
+            });
+            backToDefault();
+        } else {
+            setTimeout(() => backToDefault(), 500);
+        }
+    }
+  }, [choiceOne, choiceTwo]);
+
+  //Reset on every turn
+  const backToDefault = () => {
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setDisabled(false);
+    setTurns((prevTurns) => prevTurns + 1);
+  };
+
   return (
     <div className="App">
       <Header
