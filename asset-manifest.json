@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/pokemon-flip-game/static/css/main.65aed963.css",
+    "main.js": "/pokemon-flip-game/static/js/main.a4b95201.js",
+    "static/media/jigglypuff.png": "/pokemon-flip-game/static/media/jigglypuff.fcfd14bf81f68ad89bae.png",
+    "static/media/hoothoot.png": "/pokemon-flip-game/static/media/hoothoot.943e551fd6e8f62673f8.png",
+    "static/media/cacnea.png": "/pokemon-flip-game/static/media/cacnea.8c4e42bd9d187f357040.png",
+    "static/media/marrill.png": "/pokemon-flip-game/static/media/marrill.36dc5bc68d37d2288d98.png",
+    "static/media/meowth.png": "/pokemon-flip-game/static/media/meowth.0683861824970f5f5f81.png",
+    "static/media/pikachu.png": "/pokemon-flip-game/static/media/pikachu.3aed2460dabb2c147bba.png",
+    "static/media/pokeball.png": "/pokemon-flip-game/static/media/pokeball.8440b111eda1ec629e0f.png",
+    "index.html": "/pokemon-flip-game/index.html",
+    "main.65aed963.css.map": "/pokemon-flip-game/static/css/main.65aed963.css.map",
+    "main.a4b95201.js.map": "/pokemon-flip-game/static/js/main.a4b95201.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.65aed963.css",
+    "static/js/main.a4b95201.js"
+  ]
+}
