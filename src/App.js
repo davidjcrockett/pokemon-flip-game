@@ -6,12 +6,13 @@ import './App.css';
 
 
 function App () {
-//need to pass through cards state variable later in my return
   const [ cards, setCards ] = useState ([]);
   const [ turns, setTurns ] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [winner, setWinner] = useState(null);
+  const [exceeds, setExceeds] = useState(null);
 
   //Shuffle Function
   const shuffleCards = () => {
@@ -22,6 +23,11 @@ function App () {
 
     setCards(shuffledCards);
     setTurns(0);
+    setExceeds(false);
+    setWinner(false);
+    setDisabled(false);
+    setChoiceOne(null);
+    setChoiceTwo(null);
   };
 
   //Call the function
@@ -63,12 +69,39 @@ function App () {
     setTurns((prevTurns) => prevTurns + 1);
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+        const isTrue = cards.every((card) => card.matched === true);
+        if (turns >= 10) {
+            if (isTrue && turns === 10) {
+               setWinner(true)
+            } 
+            else {
+               setExceeds(true)
+               // Disbaled user from clicking on cards
+               setDisabled(true);
+            }
+        }
+        else if (isTrue && cards.length > 0) {
+            setWinner(true);
+        }
+    }, 500);
+}, [turns, cards, winner]);
+
   return (
     <div className="App">
       <Header
         turns={turns}
         onShuffle={shuffleCards}
       />
+
+        {
+          winner ? <div className='result'>Congratulations! You've won this battle!</div> : <div></div>
+        }
+        {
+           exceeds ? <div className='result'>Uh Oh, You're out of Turns! Try again, trainer!</div> : <div></div>
+        }
+
       <Grid 
         cards={cards}
         choiceOne={choiceOne}
