@@ -8,7 +8,10 @@ function App () {
 //need to pass through cards state variable later in my return
   const [ cards, setCards ] = useState ([]);
   const [ turns, setTurns ] = useState(0);
+  const [choiceOne, setChoiceOne] = useState(null);
+  const [choiceTwo, setChoiceTwo] = useState(null);
 
+  //Shuffle Function
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
     .sort(() => Math.random() - 0.5)
@@ -19,9 +22,15 @@ function App () {
     setTurns(0);
   };
 
+  //Call the function
   useEffect(() => {
     shuffleCards();
   }, []);
+
+  // Handle Choice
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
 
   return (
     <div className='App'>
