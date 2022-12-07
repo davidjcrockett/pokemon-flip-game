@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import { cardImages } from './components/Images';
+import Grid from "./components/Grid";
 import './App.css';
 
 
@@ -10,6 +11,7 @@ function App () {
   const [ turns, setTurns ] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
   //Shuffle Function
   const shuffleCards = () => {
@@ -33,8 +35,18 @@ function App () {
   };
 
   return (
-    <div className='App'>
-      <Header turns={turns} onShuffle={shuffleCards} />
+    <div className="App">
+      <Header
+        turns={turns}
+        onShuffle={shuffleCards}
+      />
+      <Grid 
+        cards={cards}
+        choiceOne={choiceOne}
+        choiceTwo={choiceTwo}
+        disabled={disabled}
+        handleChoice={handleChoice} 
+      />
     </div>
   );
 };
