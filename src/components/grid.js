@@ -12,7 +12,7 @@ const Grid = ({ cards, choiceOne, choiceTwo, disabled, handleChoice }) => {
                         disabled={disabled}
                     />
                 </div>
-            ))};
+            ))}
         </div>
     );
 };
